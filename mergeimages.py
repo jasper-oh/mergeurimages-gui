@@ -1,5 +1,9 @@
 import tkinter.ttk as ttk
 from tkinter import *
+from tkinter import filedialog
+import tkinter.messagebox as msgbox
+import basic_function as b_func
+from PIL import Image
 
 root = Tk()
 root.title("Merge UR Images")
@@ -9,10 +13,12 @@ root.resizable(False, False)
 file_frame = Frame(root)
 file_frame.pack(fill="x", padx=5, pady=5)
 
-btn_add_file = Button(file_frame, padx=5, pady=5, width=12, text="ADD FILE")
+btn_add_file = Button(file_frame, padx=5, pady=5, width=12,
+                      text="ADD FILE", command=b_func.add_file)
 btn_add_file.pack(side="left")
 
-btn_del_file = Button(file_frame, padx=5, pady=5, width=12, text="DELETE FILE")
+btn_del_file = Button(file_frame, padx=5, pady=5, width=12,
+                      text="DELETE FILE", command=b_func.del_file)
 btn_del_file.pack(side="right")
 
 # List Frame & scrollbar
@@ -34,7 +40,8 @@ path_frame.pack(fill="x", padx=5, pady=5, ipady=5)
 txt_dest_path = Entry(path_frame)
 txt_dest_path.pack(side="left", fill="x", expand=True, padx=5, pady=5, ipady=4)
 
-btn_dest_path = Button(path_frame, text="SEARCH", width=10)
+btn_dest_path = Button(path_frame, text="SEARCH",
+                       width=10, command=b_func.browse_dest_path)
 btn_dest_path.pack(side="right", padx=5, pady=5)
 
 # Option Frame
@@ -86,7 +93,8 @@ run_frame.pack(fill="x", padx=5, pady=5)
 btn_close = Button(run_frame, padx=5, pady=5, text="CLOSE",
                    width=12, command=root.quit)
 btn_close.pack(side="right", padx=5, pady=5)
-btn_start = Button(run_frame, padx=5, pady=5, text="START", width=12)
+btn_start = Button(run_frame, padx=5, pady=5, text="START",
+                   width=12, command=b_func.start)
 btn_start.pack(side="right", padx=5, pady=5)
 
 
